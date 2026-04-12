@@ -1,6 +1,6 @@
 # Robot AI : Assistant Industriel Multi-Agents
 
-![Concept Final]([URL_DE_VOTRE_IMAGE_CONCEPT](https://github.com/h-marouan/h-marouan.github.io/blob/main/images/Illustration%20du%20design%20cible%20du%20robot.png))
+![Concept Final](images/Illustration du design cible du robot.png)
 
 ## 📋 Présentation du Projet
 Robot AI est une **entreprise virtuelle pilotée par IA**, conçue pour l'aide à la décision en milieu industriel. Le système analyse un besoin complexe, délègue le raisonnement à des agents spécialisés (Ingénierie, Finance, Qualité), et produit une recommandation structurée.
