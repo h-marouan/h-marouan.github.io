@@ -3,147 +3,1426 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marwan | Ingénieur Génie Électrique & IA Industrielle</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Portfolio de Marouan Hamza — Ingénieur Électronique &amp; Logiciel Embarqué, Vision par Ordinateur, IA Industrielle">
+    <title>Marouan Hamza | Ingénieur Embarqué &amp; IA Industrielle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
     <style>
+        /* ===== RESET & VARIABLES ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         :root {
             --bg: #0B111A;
             --surface: #121A26;
+            --surface2: #1a2535;
             --text: #E6EEF8;
             --primary: #35C2FF;
             --accent: #00D6B5;
-            --muted: #9AA9C0;
+            --muted: #8A9AB5;
+            --border: #1e2d42;
+            --nav-h: 64px;
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
             color: var(--text);
-            margin: 0;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 16px;
         }
 
-        header {
-            height: 60vh;
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: var(--nav-h);
+            background: rgba(11,17,26,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+
+        .nav-brand {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            background: var(--surface2);
+        }
+
+        .nav-cta {
+            background: var(--primary) !important;
+            color: var(--bg) !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent) !important;
+            color: var(--bg) !important;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, #0B111A 0%, #1a2a40 100%);
-            border-bottom: 2px solid var(--surface);
+            padding: calc(var(--nav-h) + 40px) 24px 60px;
+            background: radial-gradient(ellipse at 60% 30%, #0d2240 0%, var(--bg) 65%);
+            position: relative;
+            overflow: hidden;
         }
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(53%2C194%2C255%2C0.07)'/%3E%3C/svg%3E") repeat;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(53,194,255,0.1);
+            border: 1px solid rgba(53,194,255,0.3);
             color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 20px;
         }
 
-        header p {
-            font-size: 1.2rem;
-            color: var(--muted);
-            max-width: 600px;
+        #hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, var(--text) 40%, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
+        #hero .tagline {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--muted);
+            max-width: 620px;
+            margin-bottom: 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+
+        .btn-primary { background: var(--primary); color: var(--bg); }
+        .btn-primary:hover { background: #5dd0ff; color: var(--bg); }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+        .btn-outline:hover { background: rgba(53,194,255,0.08); }
+
+        .btn-ghost {
+            background: var(--surface2);
+            color: var(--text);
+        }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 80px 0; }
+        section:nth-child(even) { background: var(--surface); }
 
         .container {
-            max-width: 1100px;
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 24px;
+        }
+
+        .section-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
         }
 
         .section-title {
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-            margin-bottom: 40px;
-            font-size: 1.8rem;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--text);
         }
 
-        /* Grille de projets */
-        .project-grid {
+        .section-title span { color: var(--primary); }
+
+        .section-intro {
+            color: var(--muted);
+            max-width: 640px;
+            margin-bottom: 50px;
+            font-size: 1.02rem;
+        }
+
+        /* ===== A PROPOS ===== */
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-text p { color: var(--muted); margin-bottom: 16px; }
+        .about-text p strong { color: var(--text); }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .highlight-card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 16px 20px;
+        }
+
+        .highlight-card .hc-num {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .highlight-card .hc-label {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        /* ===== COMPETENCES ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-group {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px;
+        }
+
+        .skill-group h3 {
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--primary);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+        .skill-tag {
+            font-size: 0.8rem;
+            background: rgba(53,194,255,0.08);
+            color: var(--text);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline { position: relative; padding-left: 32px; }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px; top: 6px; bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 42px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px; top: 6px;
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 2px solid var(--bg);
+            box-shadow: 0 0 0 3px rgba(53,194,255,0.2);
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .timeline-org {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .timeline-body {
+            color: var(--muted);
+            font-size: 0.93rem;
+        }
+
+        .timeline-body ul { list-style: none; padding: 0; }
+        .timeline-body li { padding: 2px 0 2px 16px; position: relative; }
+        .timeline-body li::before {
+            content: '\25B8';
+            position: absolute; left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        /* ===== PROJETS CARDS ===== */
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 80px;
         }
 
         .project-card {
-            background: var(--surface);
+            background: var(--surface2);
+            border: 1px solid var(--border);
             border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease, border 0.3s ease;
-            border: 1px solid transparent;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-6px);
             border-color: var(--primary);
+            box-shadow: 0 12px 40px rgba(53,194,255,0.12);
         }
 
-        .project-img {
+        .card-img {
             width: 100%;
-            height: 200px;
+            height: 190px;
             object-fit: cover;
-            background: #1e2a3a;
+            background: var(--surface);
+            display: block;
         }
 
-        .project-content {
-            padding: 20px;
-        }
+        .card-body { padding: 22px; }
+        .card-body h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .card-body p { color: var(--muted); font-size: 0.9rem; margin-bottom: 14px; }
 
-        .project-tags {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
+        .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
         .tag {
-            font-size: 0.75rem;
-            background: rgba(53, 194, 255, 0.1);
+            font-size: 0.73rem;
+            font-weight: 700;
+            background: rgba(53,194,255,0.1);
             color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: bold;
+            padding: 3px 9px;
+            border-radius: 3px;
+        }
+        .tag-accent { background: rgba(0,214,181,0.1); color: var(--accent); }
+
+        /* ===== PROJETS DETAIL ===== */
+        .project-detail {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 60px;
+            overflow: hidden;
         }
 
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 20px;
-            background: var(--primary);
-            color: var(--bg);
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: 0.3s;
+        .pd-hero {
+            background: linear-gradient(135deg, var(--surface) 0%, #0d1e30 100%);
+            padding: 40px 40px 32px;
+            border-bottom: 1px solid var(--border);
         }
 
-        .btn:hover {
-            background: var(--accent);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .social-links a {
+        .pd-hero h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 6px;
             color: var(--text);
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: 0.3s;
         }
 
-        .social-links a:hover {
-            color: var(--primary);
+        .pd-hero h2 span { color: var(--primary); }
+        .pd-hero .version { color: var(--accent); font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; }
+        .pd-hero p { color: var(--muted); max-width: 720px; margin-top: 10px; }
+
+        .pd-main-img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pd-body { padding: 36px 40px; }
+
+        .pd-section { margin-bottom: 40px; }
+
+        .pd-section-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pd-section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .pd-section p, .pd-section li { color: var(--muted); font-size: 0.95rem; }
+        .pd-section ul, .pd-section ol { list-style: none; padding: 0; }
+        .pd-section li { padding: 5px 0 5px 20px; position: relative; }
+        .pd-section ul li::before { content: '\25B8'; position: absolute; left: 0; color: var(--primary); }
+        .pd-section ol { counter-reset: li; }
+        .pd-section ol li { counter-increment: li; }
+        .pd-section ol li::before {
+            content: counter(li) '.';
+            position: absolute; left: 0;
+            color: var(--accent); font-weight: 700; font-size: 0.85rem;
+        }
+        .pd-section strong { color: var(--text); }
+
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; }
+
+        .tech-badge {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.84rem;
+            font-weight: 600;
+        }
+
+        .tech-badge.highlight { border-color: var(--primary); color: var(--primary); }
+
+        .result-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 4px;
+        }
+
+        .result-card {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 18px;
+        }
+
+        .result-card .rc-icon { font-size: 1.3rem; margin-bottom: 8px; }
+        .result-card h4 { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+        .result-card p { font-size: 0.82rem; color: var(--muted) !important; }
+
+        .pd-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-info p { color: var(--muted); margin-bottom: 28px; }
+
+        .contact-links { display: flex; flex-direction: column; gap: 14px; }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px 18px;
+            text-decoration: none;
+            color: var(--text);
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .contact-link:hover { border-color: var(--primary); background: rgba(53,194,255,0.05); }
+        .contact-link i { font-size: 1.2rem; color: var(--primary); width: 24px; text-align: center; }
+        .contact-link span { font-size: 0.9rem; }
+
+        .contact-cv {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .contact-cv i { font-size: 3rem; color: var(--primary); margin-bottom: 14px; display: block; }
+        .contact-cv h3 { margin-bottom: 10px; }
+        .contact-cv p { color: var(--muted); font-size: 0.9rem; margin-bottom: 20px; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 36px 24px;
+            text-align: center;
+        }
+
+        .footer-social { display: flex; justify-content: center; gap: 20px; margin-bottom: 18px; }
+        .footer-social a { color: var(--muted); font-size: 1.3rem; transition: color 0.2s; }
+        .footer-social a:hover { color: var(--primary); }
+        footer p { color: var(--muted); font-size: 0.85rem; }
+        footer a { color: var(--primary); text-decoration: none; }
+
+        /* ===== FIGURE CAPTION ===== */
+        .img-figure {
+            margin-top: 16px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .img-figure img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .img-figure figcaption {
+            padding: 8px 12px;
+            background: var(--surface);
+            font-size: 0.78rem;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--nav-h);
+                left: 0; right: 0;
+                background: var(--surface);
+                border-bottom: 1px solid var(--border);
+                padding: 16px;
+                gap: 4px;
+            }
+            .nav-links.open { display: flex; }
+            .nav-toggle { display: block; }
+            .about-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .pd-hero { padding: 24px 20px; }
+            .pd-body { padding: 24px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .project-cards { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Marouan</h1>
-        <p>Ingénieur Chef d'Équipe @ Rototeca | Expert en Systèmes Embarqués, IA Industrielle & Vision par Ordinateur</p>
-        <div class="social-links" style="margin-top: 20px;">
+<!-- ====== NAVIGATION ====== -->
+<nav aria-label="Navigation principale">
+    <a href="#hero" class="nav-brand">MH</a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <i class="fa fa-bars"></i>
+    </button>
+    <ul class="nav-links">
+        <li><a href="#about">&#192; propos</a></li>
+        <li><a href="#skills">Comp&#233;tences</a></li>
+        <li><a href="#experience">Exp&#233;rience</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="docs/marouan%20hamza.pdf" target="_blank" rel="noopener" class="nav-cta">
+            <i class="fa fa-download"></i> CV
+        </a></li>
+    </ul>
+</nav>
+
+<!-- ====== HERO ====== -->
+<header id="hero" role="banner">
+    <div class="hero-badge">Disponible &#8212; Ouvert aux opportunit&#233;s</div>
+    <h1>Marouan Hamza</h1>
+    <p class="tagline">
+        Ing&#233;nieur &#201;lectronique &amp; Logiciel Embarqu&#233; &nbsp;&#183;&nbsp; IA Industrielle &amp; Vision par Ordinateur &nbsp;&#183;&nbsp; 12 ans d&#8217;exp&#233;rience
+    </p>
+    <div class="hero-actions">
+        <a href="docs/marouan%20hamza.pdf" class="btn btn-primary" target="_blank" rel="noopener" download>
+            <i class="fa fa-download"></i> T&#233;l&#233;charger le CV
+        </a>
+        <a href="#projects" class="btn btn-outline">
+            <i class="fa fa-rocket"></i> Voir les projets
+        </a>
+        <a href="https://github.com/h-marouan" class="btn btn-ghost" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+    </div>
+</header>
+
+<!-- ====== A PROPOS ====== -->
+<section id="about">
+    <div class="container">
+        <p class="section-label">Pr&#233;sentation</p>
+        <h2 class="section-title">&#192; propos de <span>moi</span></h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    <strong>Ing&#233;nieur Chef d&#8217;&#201;quipe en G&#233;nie &#201;lectrique &amp; Informatique Industrielle</strong>,
+                    je con&#231;ois et d&#233;ploie des syst&#232;mes technologiques sur mesure pour des clients industriels exigeants.
+                    Fort de <strong>12 ans d&#8217;exp&#233;rience</strong>, je ma&#238;trise l&#8217;int&#233;gralit&#233; du cycle de vie produit,
+                    de l&#8217;analyse du besoin jusqu&#8217;au d&#233;ploiement en production.
+                </p>
+                <p>
+                    Mon domaine de pr&#233;dilection : faire dialoguer <strong>hardware embarqu&#233;</strong> (STM32, ESP32, Raspberry Pi),
+                    <strong>vision par ordinateur</strong> (OpenCV, YOLO) et <strong>intelligence artificielle</strong> (LLM, agents multi-t&#226;ches)
+                    au sein d&#8217;architectures industrielles robustes.
+                </p>
+                <p>
+                    Actuellement <strong>Team Lead Engineer chez ROTOTECA Engineering</strong>, je pilote des projets d&#8217;Industrie 4.0
+                    qui ont permis d&#8217;am&#233;liorer l&#8217;efficacit&#233; de production de <strong>+15 &#224; +27&#8201;%</strong>. En parall&#232;le,
+                    je d&#233;veloppe des projets personnels ambitieux m&#234;lant robotique, IA locale et orchestration d&#8217;agents.
+                </p>
+                <p>
+                    Ma valeur ajout&#233;e pour un recruteur&#160;: <strong>vision syst&#232;me compl&#232;te</strong> (hardware &#8594; firmware &#8594;
+                    software &#8594; IA), capacit&#233; &#224; internaliser rapidement de nouvelles comp&#233;tences (autonomie technique compl&#232;te
+                    en moins de 6&#8201;mois), et go&#251;t pour la r&#233;solution de probl&#232;mes complexes en environnement industriel r&#233;el.
+                </p>
+                <div style="margin-top:22px;">
+                    <a href="docs/marouan%20hamza.pdf" class="btn btn-primary" target="_blank" rel="noopener" download>
+                        <i class="fa fa-file-pdf"></i> Ouvrir le CV complet
+                    </a>
+                </div>
+            </div>
+            <div class="about-highlights">
+                <div class="highlight-card">
+                    <div class="hc-num">12</div>
+                    <div class="hc-label">Ann&#233;es d&#8217;exp&#233;rience en syst&#232;mes embarqu&#233;s &amp; industrie</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="hc-num">+27&#8201;%</div>
+                    <div class="hc-label">Gain d&#8217;efficacit&#233; de production obtenu chez ROTOTECA</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="hc-num">3</div>
+                    <div class="hc-label">Projets phares combinant IA, vision et embarqu&#233;</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="hc-num">&lt;&#8201;6 mois</div>
+                    <div class="hc-label">Pour atteindre l&#8217;autonomie technique compl&#232;te sur de nouvelles stacks</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== COMPETENCES ====== -->
+<section id="skills">
+    <div class="container">
+        <p class="section-label">Expertise</p>
+        <h2 class="section-title">Comp&#233;tences <span>techniques</span></h2>
+        <p class="section-intro">
+            &#201;tendue de comp&#233;tences couvrant du mat&#233;riel &#233;lectronique &#224; l&#8217;orchestration d&#8217;agents IA en production.
+        </p>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h3><i class="fa fa-brain"></i> IA / LLM &amp; Orchestration</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">LLM (Groq, Ollama, OpenRouter)</span>
+                    <span class="skill-tag">Claude API</span>
+                    <span class="skill-tag">Llama 3.2 / 3.3</span>
+                    <span class="skill-tag">Multi-agents</span>
+                    <span class="skill-tag">M&#233;moire persistante</span>
+                    <span class="skill-tag">Edge AI</span>
+                    <span class="skill-tag">YOLO</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3><i class="fa fa-eye"></i> Vision par Ordinateur</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">OpenCV</span>
+                    <span class="skill-tag">Picamera3</span>
+                    <span class="skill-tag">D&#233;tection de contours</span>
+                    <span class="skill-tag">Reconnaissance faciale</span>
+                    <span class="skill-tag">Inspection qualit&#233; temps r&#233;el</span>
+                    <span class="skill-tag">Analyse optique</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3><i class="fa fa-microchip"></i> Embarqu&#233; &amp; Linux</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Raspberry Pi 5</span>
+                    <span class="skill-tag">STM32</span>
+                    <span class="skill-tag">ESP32</span>
+                    <span class="skill-tag">MicroPython</span>
+                    <span class="skill-tag">Firmware C/C++</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">GPIO</span>
+                    <span class="skill-tag">RS485 / CAN / SPI</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3><i class="fa fa-code"></i> Software &amp; Architecture</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">PyQt5</span>
+                    <span class="skill-tag">Multithreading</span>
+                    <span class="skill-tag">Architecture modulaire</span>
+                    <span class="skill-tag">Pytest</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">PyYAML</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3><i class="fa fa-bolt"></i> Hardware &amp; &#201;lectronique</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Conception circuits</span>
+                    <span class="skill-tag">CNC &amp; automatisme</span>
+                    <span class="skill-tag">Moteurs NEMA23 / TB6600</span>
+                    <span class="skill-tag">IoT industriel</span>
+                    <span class="skill-tag">G&#233;n&#233;ration G-code</span>
+                    <span class="skill-tag">Syst&#232;mes de s&#233;curit&#233;</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3><i class="fa fa-cloud"></i> Cloud &amp; APIs</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Groq API</span>
+                    <span class="skill-tag">OpenRouter</span>
+                    <span class="skill-tag">PySerial</span>
+                    <span class="skill-tag">Supervision &#224; distance</span>
+                    <span class="skill-tag">Passerelles IoT</span>
+                    <span class="skill-tag">Interfaces HMI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== EXPERIENCES / FORMATION ====== -->
+<section id="experience">
+    <div class="container">
+        <p class="section-label">Parcours</p>
+        <h2 class="section-title">Exp&#233;riences &amp; <span>Formation</span></h2>
+        <p class="section-intro">Un parcours de 12 ans alliant ing&#233;nierie syst&#232;me, IoT industriel et IA embarqu&#233;e.</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2024 &#8211; Pr&#233;sent</div>
+                <div class="timeline-title">Team Lead Engineer &#8212; Am&#233;lioration des Processus &amp; Industrie 4.0</div>
+                <div class="timeline-org">ROTOTECA Engineering</div>
+                <div class="timeline-body">
+                    <p>Pilotage du cycle de vie complet de projets industriels (analyse &#8594; d&#233;ploiement). Internalisation des comp&#233;tences hardware/software en moins de 6&#8201;mois.</p>
+                    <ul>
+                        <li>Optimisation des performances de production&#160;: <strong>+15&#8201;% &#224; +27&#8201;%</strong> d&#8217;efficacit&#233;</li>
+                        <li>D&#233;veloppement de <strong>SMART VIEWER v4.1</strong>&#160;: syst&#232;me d&#8217;inspection couleur temps r&#233;el (Raspberry Pi 5 + Pico W, RS485, OpenCV)</li>
+                        <li>D&#233;veloppement de <strong>ROBOT-AI v2.0</strong>&#160;: architecture multi-agents LLM hybride (Groq/Ollama, Llama 3.3/3.2)</li>
+                        <li>Conception &amp; d&#233;ploiement de solutions IoT industrielles (ESP32, Raspberry Pi)</li>
+                        <li>D&#233;veloppement de <strong>OPTIQT v1.0</strong>&#160;: framework modulaire Vision &amp; CNC (Python, OpenCV, PyQt5)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2017 &#8211; 2024</div>
+                <div class="timeline-title">Responsable Technique &#8212; IoT &amp; Syst&#232;mes Embarqu&#233;s</div>
+                <div class="timeline-org">SIMATEX</div>
+                <div class="timeline-body">
+                    <ul>
+                        <li>Conception de syst&#232;mes &#233;lectriques et r&#233;seaux techniques</li>
+                        <li>Int&#233;gration de solutions IoT et smart-building</li>
+                        <li>D&#233;ploiement d&#8217;infrastructures de supervision et de s&#233;curit&#233;</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2014 &#8211; 2017</div>
+                <div class="timeline-title">Ing&#233;nieur Syst&#232;mes &#201;lectriques &amp; Domotique</div>
+                <div class="timeline-org">Ind&#233;pendant / Consultant</div>
+                <div class="timeline-body">
+                    <p>Missions de conseil et r&#233;alisation en ing&#233;nierie &#233;lectrique, domotique et automatisation.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2013</div>
+                <div class="timeline-title">Master en G&#233;nie &#201;lectrique &amp; Informatique Industrielle</div>
+                <div class="timeline-org">FSA B&#233;thune</div>
+                <div class="timeline-body">
+                    <p>Formation d&#8217;ing&#233;nieur couvrant &#233;lectronique, automatisme, syst&#232;mes embarqu&#233;s et informatique industrielle.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== PROJETS ====== -->
+<section id="projects">
+    <div class="container">
+        <p class="section-label">R&#233;alisations</p>
+        <h2 class="section-title">Projets <span>phares</span></h2>
+        <p class="section-intro">
+            Trois projets illustrant ma ma&#238;trise de la cha&#238;ne compl&#232;te&#160;: &#233;lectronique, embarqu&#233;, vision et IA.
+        </p>
+
+        <!-- Cards overview -->
+        <div class="project-cards">
+            <div class="project-card">
+                <img src="assets/images/robot-ai/robot-ai-agents.png"
+                     alt="Architecture multi-agents de ROBOT-AI"
+                     class="card-img" loading="lazy">
+                <div class="card-body">
+                    <h3>ROBOT-AI v2.0</h3>
+                    <p>Assistant industriel multi-agents pilot&#233; par LLM hybride cloud/local.</p>
+                    <div class="card-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">LLM</span>
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag tag-accent">Multi-agents</span>
+                    </div>
+                    <a href="#robot-ai" class="btn btn-primary">Voir le d&#233;tail</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="assets/images/smart-viewer/smart-viewer-main.svg"
+                     alt="Interface Smart Viewer — inspection couleur temps r&#233;el"
+                     class="card-img" loading="lazy">
+                <div class="card-body">
+                    <h3>Smart Viewer v4.1</h3>
+                    <p>Syst&#232;me d&#8217;inspection et correction couleur temps r&#233;el embarqu&#233; sur Raspberry Pi 5.</p>
+                    <div class="card-tags">
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">RS485</span>
+                        <span class="tag">PyQt5</span>
+                        <span class="tag tag-accent">Vision</span>
+                    </div>
+                    <a href="#smart-viewer" class="btn btn-primary">Voir le d&#233;tail</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="assets/images/optiqt/optiqt-main.svg"
+                     alt="Interface OptiQt — framework vision et CNC"
+                     class="card-img" loading="lazy">
+                <div class="card-body">
+                    <h3>OptiQt v1.0</h3>
+                    <p>Framework modulaire open-source pour la vision industrielle et le pilotage CNC.</p>
+                    <div class="card-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">G-code</span>
+                        <span class="tag tag-accent">CNC</span>
+                    </div>
+                    <a href="#optiqt" class="btn btn-primary">Voir le d&#233;tail</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJET 1 : ROBOT-AI -->
+        <article class="project-detail" id="robot-ai">
+            <div class="pd-hero">
+                <p class="version">Projet personnel &#8212; v2.0</p>
+                <h2><span>ROBOT-AI</span> &#8212; Assistant industriel multi-agents</h2>
+                <p>
+                    Robot intelligent autonome con&#231;u comme une <strong>entreprise virtuelle pilot&#233;e par IA</strong>.
+                    Le syst&#232;me analyse un besoin industriel, mobilise plusieurs agents sp&#233;cialis&#233;s et produit
+                    une recommandation structur&#233;e, exploitable et orient&#233;e projet r&#233;el.
+                </p>
+                <div style="margin-top:16px;">
+                    <a href="https://github.com/h-marouan" class="btn btn-outline" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> GitHub (h-marouan)
+                    </a>
+                </div>
+            </div>
+
+            <img src="assets/images/robot-ai/robot-ai-architecture.png"
+                 alt="Sch&#233;ma d&#8217;architecture globale de ROBOT-AI"
+                 class="pd-main-img" loading="lazy">
+
+            <div class="pd-body">
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-align-left"></i> Vue d&#8217;ensemble</h3>
+                    <p>
+                        ROBOT-AI est un <strong>chef d&#8217;orchestre intelligent</strong>&#160;: il per&#231;oit (voix, clavier, vision),
+                        raisonne (architecture multi-agents), retient (m&#233;moire long terme), et agit sur des syst&#232;mes
+                        externes (APIs, outils logiciels). Je conserve le r&#244;le de <strong>CEO et administrateur principal</strong>,
+                        avec validation finale des d&#233;cisions sensibles.
+                    </p>
+                    <ul style="margin-top:12px;">
+                        <li>Analyser les besoins du march&#233; local (notamment en France)</li>
+                        <li>&#201;valuer la faisabilit&#233; technique et &#233;conomique d&#8217;un projet</li>
+                        <li>D&#233;finir les ressources n&#233;cessaires et produire une vision industrielle compl&#232;te de bout en bout</li>
+                        <li>Servir d&#8217;outil d&#8217;aide &#224; la d&#233;cision pour des projets r&#233;els</li>
+                    </ul>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-sitemap"></i> Architecture multi-agents</h3>
+                    <p>
+                        Chaque agent occupe un <strong>r&#244;le m&#233;tier pr&#233;cis</strong>&#160;: direction, coordination, ing&#233;nierie,
+                        d&#233;veloppement logiciel, analyse march&#233;, finance, qualit&#233; et industrialisation. La valeur du projet
+                        r&#233;side dans l&#8217;orchestration de ces agents, la m&#233;moire persistante et la s&#233;curit&#233; des actions sensibles
+                        &#8212; et non dans l&#8217;entra&#238;nement d&#8217;un mod&#232;le IA.
+                    </p>
+                    <figure class="img-figure" style="margin-top:16px;">
+                        <img src="assets/images/robot-ai/robot-ai-agents.png"
+                             alt="&#201;quipe multi-agents de ROBOT-AI" loading="lazy">
+                        <figcaption>&#201;quipe d&#8217;agents m&#233;tier &#8212; chaque agent est sp&#233;cialis&#233; dans un domaine pr&#233;cis</figcaption>
+                    </figure>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-code"></i> Technologies</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge highlight">Python</span>
+                        <span class="tech-badge highlight">Groq API</span>
+                        <span class="tech-badge highlight">Ollama / Llama 3.2</span>
+                        <span class="tech-badge highlight">Claude API</span>
+                        <span class="tech-badge highlight">OpenRouter</span>
+                        <span class="tech-badge">Raspberry Pi 5</span>
+                        <span class="tech-badge">NVIDIA Jetson (migration)</span>
+                        <span class="tech-badge">Reconnaissance faciale</span>
+                        <span class="tech-badge">Bus d&#8217;&#233;v&#233;nements</span>
+                        <span class="tech-badge">M&#233;moire persistante YAML</span>
+                        <span class="tech-badge">PyYAML</span>
+                        <span class="tech-badge">GPIO / LED RGB</span>
+                        <span class="tech-badge">OpenCV</span>
+                    </div>
+                    <p style="margin-top:14px;">
+                        <strong>Strat&#233;gie d&#8217;adaptation par mod&#232;le&#160;:</strong> certains agents utilisent <em>Groq</em> pour la rapidit&#233;,
+                        l&#8217;agent logiciel utilise <em>Claude</em> pour le raisonnement avanc&#233;, le directeur peut s&#8217;appuyer sur
+                        <em>OpenRouter</em> pour acc&#233;der &#224; plusieurs mod&#232;les selon le contexte.
+                        Cette approche optimise qualit&#233;, vitesse et co&#251;t simultan&#233;ment.
+                    </p>
+                    <figure class="img-figure" style="margin-top:16px;">
+                        <img src="assets/images/robot-ai/robot-ai-vocal.png"
+                             alt="Mode vocal &#8212; capture du robot en fonctionnement" loading="lazy">
+                        <figcaption>Capture du mode vocal &#8212; perception par voix et clavier</figcaption>
+                    </figure>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-shield-alt"></i> R&#233;silience &amp; S&#233;curit&#233;</h3>
+                    <p>Le robot est con&#231;u pour rester op&#233;rationnel en toute circonstance&#160;:</p>
+                    <ul>
+                        <li><strong>Coupure Internet</strong> &#8594; basculement automatique sur LLM locale (Llama 3.2 via Ollama)</li>
+                        <li><strong>Expiration de tokens API</strong> &#8594; fallback automatique vers une autre API cloud disponible</li>
+                        <li><strong>Actions sensibles</strong> &#8594; validation multi-niveaux&#160;: reconnaissance faciale + commande valide + confirmation &#233;cran + bouton physique</li>
+                    </ul>
+                    <figure class="img-figure" style="margin-top:16px;">
+                        <img src="assets/images/robot-ai/robot-ai-fallback.png"
+                             alt="Strat&#233;gie de fallback Cloud / Local" loading="lazy">
+                        <figcaption>Strat&#233;gie de fallback Cloud &#8596; Local&#160;: continuit&#233; de service garantie</figcaption>
+                    </figure>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-exclamation-triangle"></i> Probl&#232;mes rencontr&#233;s &amp; Solutions</h3>
+                    <ol>
+                        <li>
+                            <strong>Gestion de la m&#233;moire contextuelle&#160;:</strong> les LLM n&#8217;ont pas de m&#233;moire native.
+                            Solution&#160;: syst&#232;me de m&#233;moire externe g&#233;rant m&#233;moire entreprise, m&#233;moire projet, historiques
+                            de d&#233;cisions, r&#233;sum&#233;s automatiques et contexte long terme &#8212; persistant et transf&#233;rable entre machines.
+                        </li>
+                        <li>
+                            <strong>Disponibilit&#233; du service&#160;:</strong> d&#233;pendance aux APIs cloud (latences, pannes, limites de tokens).
+                            Solution&#160;: architecture de fallback &#224; deux niveaux (cloud &#8594; local &#8594; autre cloud) avec basculement transparent.
+                        </li>
+                        <li>
+                            <strong>S&#233;curit&#233; des actions critiques&#160;:</strong> un agent IA ne doit pas ex&#233;cuter des actions irr&#233;versibles
+                            sans contr&#244;le humain. Solution&#160;: pipeline de validation multi-facteurs avec bouton physique comme dernier verrou.
+                        </li>
+                        <li>
+                            <strong>Performance embarqu&#233;e&#160;:</strong> les LLM sont gourmands en ressources. Solution&#160;: mod&#232;les
+                            optimis&#233;s edge (3B&#8211;11B param&#232;tres), avec migration planifi&#233;e vers NVIDIA Jetson pour l&#8217;inf&#233;rence
+                            locale haute performance.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-star"></i> R&#233;sultats / Apprentissages</h3>
+                    <div class="result-cards">
+                        <div class="result-card">
+                            <div class="rc-icon">&#129302;</div>
+                            <h4>Auto-am&#233;lioration (inattendu)</h4>
+                            <p>Le robot a analys&#233; son propre code source et identifi&#233; des pistes d&#8217;optimisation pertinentes &#8212; d&#233;montrant sa capacit&#233; d&#8217;assistant technique intelligent d&#232;s la v2.</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="rc-icon">&#128274;</div>
+                            <h4>Contribution &#224; la s&#233;curit&#233; cloud (prometteur)</h4>
+                            <p>Le robot a contribu&#233; &#224; am&#233;liorer la s&#233;curit&#233; des donn&#233;es cloud du projet lui-m&#234;me, validant l&#8217;approche d&#8217;IA comme outil d&#8217;audit interne.</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="rc-icon">&#129513;</div>
+                            <h4>Modularit&#233; valid&#233;e</h4>
+                            <p>L&#8217;architecture ind&#233;pendante du mat&#233;riel (d&#233;velopp&#233;e d&#8217;abord sur PC) facilite la migration progressive vers Raspberry Pi puis Jetson sans refactorisation majeure.</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="rc-icon">&#127760;</div>
+                            <h4>Capacit&#233;s r&#233;seau avanc&#233;es</h4>
+                            <p>L&#8217;agent directeur navigue sur Internet, interagit avec d&#8217;autres agents IA et participe &#224; un forum d&#233;di&#233; (openclawai.io) pour enrichir ses d&#233;cisions.</p>
+                        </div>
+                    </div>
+                    <figure class="img-figure" style="margin-top:20px;">
+                        <img src="assets/images/robot-ai/robot-ai-self-improvement.png"
+                             alt="Le robot a contribu&#233; &#224; sa propre am&#233;lioration" loading="lazy">
+                        <figcaption>Capture illustrant l&#8217;auto-analyse du code source par le robot</figcaption>
+                    </figure>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-microchip"></i> Mat&#233;riel cible</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Raspberry Pi 5</span>
+                        <span class="tech-badge">&#201;cran 5 pouces</span>
+                        <span class="tech-badge">Cam&#233;ra (reconnaissance faciale)</span>
+                        <span class="tech-badge">Microphone</span>
+                        <span class="tech-badge">Haut-parleur</span>
+                        <span class="tech-badge">Bouton physique</span>
+                        <span class="tech-badge">LED RGB</span>
+                        <span class="tech-badge">SSD</span>
+                        <span class="tech-badge highlight">Migration Jetson (pr&#233;vue)</span>
+                    </div>
+                    <figure class="img-figure" style="margin-top:16px;">
+                        <img src="assets/images/robot-ai/robot-ai-design.png"
+                             alt="Illustration du design cible du robot" loading="lazy">
+                        <figcaption>Design cible du robot &#8212; version mat&#233;rielle Raspberry Pi 5</figcaption>
+                    </figure>
+                </div>
+
+                <div class="pd-links">
+                    <a href="https://github.com/h-marouan" class="btn btn-outline" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Voir sur GitHub
+                    </a>
+                    <a href="#projects" class="btn btn-ghost">
+                        <i class="fa fa-arrow-up"></i> Retour aux projets
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- PROJET 2 : SMART VIEWER -->
+        <article class="project-detail" id="smart-viewer">
+            <div class="pd-hero">
+                <p class="version">ROTOTECA Engineering &#8212; v4.1</p>
+                <h2><span>Smart Viewer</span> &#8212; Inspection &amp; Correction Couleur Temps R&#233;el</h2>
+                <p>
+                    Application embarqu&#233;e de vision industrielle pour l&#8217;inspection et la correction automatique des d&#233;fauts
+                    d&#8217;impression couleur, d&#233;ploy&#233;e sur Raspberry Pi 5 avec pilotage de moteurs NEMA23 via RS485.
+                </p>
+            </div>
+
+            <img src="assets/images/smart-viewer/smart-viewer-main.svg"
+                 alt="Interface Smart Viewer &#8212; inspection couleur temps r&#233;el"
+                 class="pd-main-img" loading="lazy">
+            <!-- TODO: Remplacer par une capture d'&#233;cran r&#233;elle de l'application Smart Viewer -->
+
+            <div class="pd-body">
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-align-left"></i> Vue d&#8217;ensemble</h3>
+                    <p>
+                        Smart Viewer est un syst&#232;me d&#8217;inspection industrielle temps r&#233;el destin&#233; &#224; d&#233;tecter et corriger les
+                        d&#233;fauts couleur sur des pi&#232;ces imprim&#233;es en sortie de ligne de production. L&#8217;architecture distribu&#233;e
+                        <strong>RPi5 + Pico W</strong> communique via <strong>RS485</strong> pour piloter 4 moteurs NEMA23 (drivers TB6600)
+                        responsables de la correction physique des d&#233;fauts. Une interface PyQt5 multithreading garantit
+                        la stabilit&#233; de l&#8217;UI m&#234;me sous forte charge.
+                    </p>
+                    <ul style="margin-top:12px;">
+                        <li>Inspection couleur temps r&#233;el par vision par ordinateur (OpenCV)</li>
+                        <li>Pilotage de 4 moteurs NEMA23 via drivers TB6600 et protocole RS485</li>
+                        <li>Interface op&#233;rateur PyQt5 r&#233;active et intuitive</li>
+                        <li>Architecture distribu&#233;e RPi5 (traitement) + Pico W (actionneurs)</li>
+                    </ul>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-code"></i> Technologies</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge highlight">Python</span>
+                        <span class="tech-badge highlight">OpenCV</span>
+                        <span class="tech-badge highlight">PyQt5</span>
+                        <span class="tech-badge highlight">Picamera3</span>
+                        <span class="tech-badge highlight">RS485</span>
+                        <span class="tech-badge">Raspberry Pi 5</span>
+                        <span class="tech-badge">Raspberry Pi Pico W</span>
+                        <span class="tech-badge">MicroPython</span>
+                        <span class="tech-badge">GPIO</span>
+                        <span class="tech-badge">Moteurs NEMA23</span>
+                        <span class="tech-badge">Drivers TB6600</span>
+                        <span class="tech-badge">Multithreading</span>
+                    </div>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-exclamation-triangle"></i> Probl&#232;mes rencontr&#233;s &amp; Solutions</h3>
+                    <ol>
+                        <li>
+                            <strong>Synchronisation vision / actionneurs&#160;:</strong> latence entre la d&#233;tection d&#8217;un d&#233;faut et
+                            la correction physique. Solution&#160;: architecture multithreading avec bus de messages interne s&#233;parant
+                            le pipeline de traitement image du pipeline de commande moteur.
+                        </li>
+                        <li>
+                            <strong>Stabilit&#233; de l&#8217;interface sous charge&#160;:</strong> le traitement OpenCV en temps r&#233;el saturait
+                            l&#8217;UI thread. Solution&#160;: isolation stricte des threads UI et traitement, avec queue thread-safe pour
+                            la communication inter-threads.
+                        </li>
+                        <li>
+                            <strong>Fiabilit&#233; du lien RS485&#160;:</strong> pertes de trames lors de rafales de commandes.
+                            Solution&#160;: protocole de communication avec acquittement et retry automatique impl&#233;ment&#233;
+                            c&#244;t&#233; MicroPython sur le Pico W.
+                        </li>
+                        <li>
+                            <strong>Calibration couleur&#160;:</strong> variabilit&#233; des conditions lumineuses affectant la d&#233;tection.
+                            Solution&#160;: algorithme de calibration automatique au d&#233;marrage avec profil de r&#233;f&#233;rence r&#233;glable
+                            par l&#8217;op&#233;rateur.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-star"></i> R&#233;sultats / Apprentissages</h3>
+                    <div class="result-cards">
+                        <div class="result-card">
+                            <div class="rc-icon">&#128200;</div>
+                            <h4>Impact production (prometteur)</h4>
+                            <p>Contribution directe &#224; l&#8217;am&#233;lioration de l&#8217;efficacit&#233; de production de +15 &#224; +27&#8201;% chez ROTOTECA, r&#233;duisant les rebuts li&#233;s aux d&#233;fauts couleur.</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="rc-icon">&#128260;</div>
+                            <h4>Architecture distribu&#233;e (inattendu)</h4>
+                            <p>Le d&#233;coupage RPi5 + Pico W s&#8217;est r&#233;v&#233;l&#233; plus robuste et maintenable qu&#8217;une solution monolithique, permettant la mise &#224; jour de chaque n&#339;ud ind&#233;pendamment.</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="rc-icon">&#9889;</div>
+                            <h4>Temps r&#233;el valid&#233;</h4>
+                            <p>Le multithreading Python, combin&#233; &#224; l&#8217;architecture distribu&#233;e, suffit pour atteindre les contraintes temps r&#233;el de l&#8217;application sans recourir au C++.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pd-links">
+                    <a href="https://github.com/h-marouan" class="btn btn-outline" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Voir sur GitHub
+                    </a>
+                    <a href="#projects" class="btn btn-ghost">
+                        <i class="fa fa-arrow-up"></i> Retour aux projets
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <!-- PROJET 3 : OPTIQT -->
+        <article class="project-detail" id="optiqt">
+            <div class="pd-hero">
+                <p class="version">ROTOTECA Engineering &#8212; v1.0</p>
+                <h2><span>OptiQt</span> &#8212; Framework Modulaire Vision &amp; CNC</h2>
+                <p>
+                    Framework Python combinant vision par ordinateur et pilotage de machine CNC,
+                    avec une interface PyQt5 intuitive et une architecture en couches facilitant l&#8217;extension.
+                </p>
+            </div>
+
+            <img src="assets/images/optiqt/optiqt-main.svg"
+                 alt="Interface OptiQt &#8212; framework vision et CNC"
+                 class="pd-main-img" loading="lazy">
+            <!-- TODO: Remplacer par une capture d'&#233;cran r&#233;elle de l'application OptiQt -->
+
+            <div class="pd-body">
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-align-left"></i> Vue d&#8217;ensemble</h3>
+                    <p>
+                        OptiQt est un framework modulaire structur&#233; en quatre couches ind&#233;pendantes&#160;:
+                        <strong>Core</strong> (moteur applicatif), <strong>Vision</strong> (traitement OpenCV),
+                        <strong>CNC</strong> (g&#233;n&#233;ration G-code et communication s&#233;rie) et <strong>UI</strong> (interface PyQt5).
+                        Cette architecture facilite la maintenance, les tests unitaires et l&#8217;extension vers de nouveaux
+                        types de machines ou d&#8217;algorithmes de vision.
+                    </p>
+                    <ul style="margin-top:12px;">
+                        <li>Traitement d&#8217;image OpenCV&#160;: extraction de contours, analyse optique, segmentation</li>
+                        <li>G&#233;n&#233;ration automatique de G-code &#224; partir des r&#233;sultats de vision</li>
+                        <li>Pilotage machine via communication s&#233;rie (PySerial)</li>
+                        <li>Tests unitaires Pytest avec environnement virtualis&#233;</li>
+                        <li>Interface HMI PyQt5 pour supervision temps r&#233;el</li>
+                    </ul>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-code"></i> Technologies</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge highlight">Python</span>
+                        <span class="tech-badge highlight">OpenCV</span>
+                        <span class="tech-badge highlight">PyQt5</span>
+                        <span class="tech-badge highlight">PySerial</span>
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">G-code</span>
+                        <span class="tech-badge">Pytest</span>
+                        <span class="tech-badge">Environnement virtualis&#233;</span>
+                        <span class="tech-badge">Architecture modulaire</span>
+                        <span class="tech-badge">D&#233;tection de contours</span>
+                        <span class="tech-badge">Analyse optique</span>
+                    </div>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-exclamation-triangle"></i> Probl&#232;mes rencontr&#233;s &amp; Solutions</h3>
+                    <ol>
+                        <li>
+                            <strong>Couplage fort entre vision et CNC&#160;:</strong> les premi&#232;res versions m&#233;langeaient traitement
+                            image et g&#233;n&#233;ration G-code, rendant les tests difficiles. Solution&#160;: introduction de l&#8217;architecture
+                            en 4 couches avec interfaces bien d&#233;finies entre chaque module.
+                        </li>
+                        <li>
+                            <strong>Pr&#233;cision de la g&#233;n&#233;ration G-code&#160;:</strong> les contours extraits par OpenCV contenaient du
+                            bruit entra&#238;nant des trajectoires impr&#233;cises. Solution&#160;: pipeline de post-traitement (lissage de courbe,
+                            simplification de polygone, filtrage adaptatif).
+                        </li>
+                        <li>
+                            <strong>Testabilit&#233; du code de pilotage machine&#160;:</strong> impossible de tester sans une machine physique
+                            connect&#233;e. Solution&#160;: couche d&#8217;abstraction de la communication s&#233;rie avec mock injectable pour les
+                            tests unitaires Pytest.
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="pd-section">
+                    <h3 class="pd-section-title"><i class="fa fa-star"></i> R&#233;sultats / Apprentissages</h3>
+                    <div class="result-cards">
+                        <div class="result-card">
+                            <div class="rc-icon">&#127959;&#65039;</div>
+                            <h4>Architecture p&#233;renne (prometteur)</h4>
+                            <p>La modularit&#233; en 4 couches facilite l&#8217;ajout de nouveaux algorithmes de vision et de nouveaux types de machines sans modifier le noyau applicatif.</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="rc-icon">&#129514;</div>
+                            <h4>Couverture de tests (inattendu)</h4>
+                            <p>L&#8217;introduction de Pytest et du mock s&#233;rie a r&#233;v&#233;l&#233; plusieurs bugs de pr&#233;cision dans la g&#233;n&#233;ration G-code, am&#233;liorant significativement la qualit&#233; des trajectoires.</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="rc-icon">&#128268;</div>
+                            <h4>Polyvalence industrielle</h4>
+                            <p>Le framework a servi de base pour d&#8217;autres solutions industrielles (pr&#233;vention incendie, interfaces HMI), validant sa r&#233;utilisabilit&#233;.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pd-links">
+                    <a href="https://github.com/h-marouan" class="btn btn-outline" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> Voir sur GitHub
+                    </a>
+                    <a href="#projects" class="btn btn-ghost">
+                        <i class="fa fa-arrow-up"></i> Retour aux projets
+                    </a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section id="contact">
+    <div class="container">
+        <p class="section-label">Me contacter</p>
+        <h2 class="section-title">Travaillons <span>ensemble</span></h2>
+        <p class="section-intro">Ouvert aux opportunit&#233;s en ing&#233;nierie embarqu&#233;e, IA industrielle et vision par ordinateur.</p>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <p>
+                    N&#8217;h&#233;sitez pas &#224; me contacter pour discuter d&#8217;un poste, d&#8217;une mission ou d&#8217;une collaboration.
+                    Je suis particuli&#232;rement int&#233;ress&#233; par des projets m&#234;lant <strong>IA, embarqu&#233; et vision</strong>
+                    dans un contexte industriel.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:marouan.hamza@outlook.com" class="contact-link">
+                        <i class="fa fa-envelope"></i>
+                        <span>marouan.hamza@outlook.com</span>
+                    </a>
+                    <!-- TODO: Ajouter le lien LinkedIn si disponible -->
+                    <a href="https://github.com/h-marouan" class="contact-link" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i>
+                        <span>github.com/h-marouan</span>
+                    </a>
+                    <a href="tel:+21653739848" class="contact-link">
+                        <i class="fa fa-phone"></i>
+                        <span>+216 53 73 98 48</span>
+                    </a>
+                    <div class="contact-link" style="cursor:default; pointer-events:none;">
+                        <i class="fa fa-map-marker-alt"></i>
+                        <span>Tunisie &#8212; Disponible &#224; distance &amp; mobilit&#233;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-cv">
+                <i class="fa fa-file-pdf"></i>
+                <h3>Curriculum Vit&#230;</h3>
+                <p>Acc&#233;dez &#224; mon CV complet pour une vue d&#233;taill&#233;e de mon parcours, mes comp&#233;tences et mes r&#233;alisations.</p>
+                <a href="docs/marouan%20hamza.pdf" class="btn btn-primary" target="_blank" rel="noopener" download>
+                    <i class="fa fa-download"></i> T&#233;l&#233;charger le CV (PDF)
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+    <div class="footer-social">
+        <a href="https://github.com/h-marouan" title="GitHub" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:marouan.hamza@outlook.com" title="Email" aria-label="Email">
+            <i class="fa fa-envelope"></i>
+        </a>
+        <!-- TODO: Ajouter le lien LinkedIn si disponible -->
+    </div>
+    <p>
+        &copy; 2025 <strong>Marouan Hamza</strong> &#8212; Ing&#233;nieur &#201;lectronique &amp; IA Industrielle
+        &nbsp;&#183;&nbsp;
+        <a href="https://github.com/h-marouan/h-marouan.github.io" target="_blank" rel="noopener">Code source</a>
+    </p>
+</footer>
+
+<script>
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.remove('open');
+        });
+    });
+
+    // Active nav highlight on scroll
+    var sections = document.querySelectorAll('section[id], header[id]');
+    var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    function updateActiveNav() {
+        var scrollY = window.scrollY;
+        sections.forEach(function(section) {
+            var top = section.offsetTop - 80;
+            var bottom = top + section.offsetHeight;
+            var id = section.getAttribute('id');
+            if (scrollY >= top && scrollY < bottom) {
+                navLinks.forEach(function(a) {
+                    a.style.color = '';
+                    if (a.getAttribute('href') === '#' + id) {
+                        a.style.color = 'var(--primary)';
+                    }
+                });
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#0d1b2a"/>
+  <!-- Window frame -->
+  <rect x="60" y="40" width="680" height="360" rx="10" fill="#121A26" stroke="#00D6B5" stroke-width="2"/>
+  <!-- Title bar -->
+  <rect x="60" y="40" width="680" height="36" rx="10" fill="#1e2a3a"/>
+  <circle cx="86" cy="58" r="7" fill="#e53935" opacity="0.8"/>
+  <circle cx="108" cy="58" r="7" fill="#fdd835" opacity="0.8"/>
+  <circle cx="130" cy="58" r="7" fill="#43a047" opacity="0.8"/>
+  <text x="400" y="63" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#9AA9C0">OptiQt — Vision &amp; CNC Framework</text>
+  <!-- Left panel: image with contours -->
+  <rect x="80" y="92" width="280" height="200" rx="6" fill="#0B111A" stroke="#35C2FF" stroke-width="1"/>
+  <!-- Simulated contour detection -->
+  <ellipse cx="220" cy="192" rx="80" ry="60" fill="none" stroke="#00D6B5" stroke-width="2"/>
+  <ellipse cx="220" cy="192" rx="50" ry="35" fill="none" stroke="#35C2FF" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="140" y1="150" x2="300" y2="150" stroke="#35C2FF" stroke-width="0.8" opacity="0.4"/>
+  <line x1="140" y1="192" x2="300" y2="192" stroke="#35C2FF" stroke-width="0.8" opacity="0.4"/>
+  <line x1="220" y1="112" x2="220" y2="272" stroke="#35C2FF" stroke-width="0.8" opacity="0.4"/>
+  <text x="220" y="310" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#9AA9C0">Vision / Contour Detection</text>
+  <!-- Right panel: G-code -->
+  <rect x="380" y="92" width="340" height="200" rx="6" fill="#0B111A" stroke="#35C2FF" stroke-width="1"/>
+  <text x="400" y="115" font-family="Courier New, monospace" font-size="11" fill="#43a047">G21 ; Set units to mm</text>
+  <text x="400" y="132" font-family="Courier New, monospace" font-size="11" fill="#43a047">G90 ; Absolute positioning</text>
+  <text x="400" y="149" font-family="Courier New, monospace" font-size="11" fill="#35C2FF">G0 X0 Y0 Z5 ; Home</text>
+  <text x="400" y="166" font-family="Courier New, monospace" font-size="11" fill="#35C2FF">G1 Z0 F200</text>
+  <text x="400" y="183" font-family="Courier New, monospace" font-size="11" fill="#fdd835">G1 X50.2 Y30.1 F800</text>
+  <text x="400" y="200" font-family="Courier New, monospace" font-size="11" fill="#fdd835">G1 X80.5 Y60.3 F800</text>
+  <text x="400" y="217" font-family="Courier New, monospace" font-size="11" fill="#35C2FF">G1 Z5 F200</text>
+  <text x="400" y="234" font-family="Courier New, monospace" font-size="11" fill="#9AA9C0">; Toolpath complete</text>
+  <text x="550" y="310" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#9AA9C0">G-code Generation</text>
+  <!-- Module badges -->
+  <rect x="80" y="320" width="90" height="24" rx="4" fill="rgba(53,194,255,0.15)" stroke="#35C2FF" stroke-width="1"/>
+  <text x="125" y="336" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#35C2FF">Core</text>
+  <rect x="185" y="320" width="90" height="24" rx="4" fill="rgba(0,214,181,0.15)" stroke="#00D6B5" stroke-width="1"/>
+  <text x="230" y="336" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#00D6B5">Vision</text>
+  <rect x="290" y="320" width="90" height="24" rx="4" fill="rgba(53,194,255,0.15)" stroke="#35C2FF" stroke-width="1"/>
+  <text x="335" y="336" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#35C2FF">CNC</text>
+  <rect x="395" y="320" width="90" height="24" rx="4" fill="rgba(0,214,181,0.15)" stroke="#00D6B5" stroke-width="1"/>
+  <text x="440" y="336" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#00D6B5">UI (PyQt5)</text>
+  <!-- Footer label -->
+  <text x="400" y="420" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" fill="#35C2FF" font-weight="bold">OptiQt v1.0</text>
+  <text x="400" y="442" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#9AA9C0">Framework modulaire Vision &amp; CNC</text>
+  <!-- TODO: Replace with actual screenshot of OptiQt application -->
+</svg>
