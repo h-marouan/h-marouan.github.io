@@ -1579,7 +1579,7 @@
             lbImg.src = '';
         }
 
-        // Make all content images zoomable (exclude avatar and card thumbnails)
+        // Make all content images zoomable (includes card thumbnails and detail images, excludes avatar)
         function initZoomable() {
             var imgs = document.querySelectorAll(
                 '.pd-main-img, .img-figure img, .card-img'
@@ -1589,7 +1589,7 @@
                 img.addEventListener('click', function() {
                     var fig = img.closest('figure');
                     var caption = fig ? (fig.querySelector('figcaption') || {}).textContent : '';
-                    openLightbox(img.src, img.alt, caption);
+                    openLightbox(img.src, img.alt, caption || img.alt);
                 });
             });
         }
