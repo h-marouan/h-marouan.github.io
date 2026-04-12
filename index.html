@@ -600,6 +600,97 @@
             text-align: center;
         }
 
+        /* ===== HERO AVATAR ===== */
+        .hero-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 0 5px rgba(53,194,255,0.12), 0 8px 32px rgba(0,0,0,0.5);
+            object-fit: cover;
+            margin-bottom: 22px;
+            display: block;
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .zoomable {
+            cursor: zoom-in;
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            background: rgba(0,0,0,0.88);
+            backdrop-filter: blur(6px);
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+        }
+
+        #lightbox.active {
+            display: flex;
+        }
+
+        #lightbox img {
+            max-width: 94vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+            animation: lbIn 0.2s ease;
+        }
+
+        @keyframes lbIn {
+            from { opacity: 0; transform: scale(0.93); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        #lightbox-close {
+            position: fixed;
+            top: 18px;
+            right: 22px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: 1.5rem;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+            z-index: 9001;
+            line-height: 1;
+        }
+
+        #lightbox-close:hover {
+            background: var(--primary);
+            color: var(--bg);
+        }
+
+        #lightbox-caption {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(18,26,38,0.92);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.82rem;
+            padding: 6px 18px;
+            border-radius: 20px;
+            max-width: 80vw;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         /* ===== MOBILE ===== */
         @media (max-width: 768px) {
             .nav-links {
@@ -648,6 +739,7 @@
 
 <!-- ====== HERO ====== -->
 <header id="hero" role="banner">
+    <img src="assets/images/marouan-hamza.png" alt="Marouan Hamza" class="hero-avatar">
     <div class="hero-badge">Disponible &#8212; Ouvert aux opportunit&#233;s</div>
     <h1>Marouan Hamza</h1>
     <p class="tagline">
@@ -1163,6 +1255,11 @@
                         <span class="tech-badge">Drivers TB6600</span>
                         <span class="tech-badge">Multithreading</span>
                     </div>
+                    <figure class="img-figure" style="margin-top:16px;">
+                        <img src="assets/images/smart-viewer/smart-viewer-architecture.svg"
+                             alt="Schéma d'architecture globale Smart Viewer — RPi5 ↔ RS485 ↔ Pico W ↔ NEMA23" loading="lazy">
+                        <figcaption>Architecture distribuée : RPi5 (traitement + UI) ↔ RS485 câblé 8m ↔ Pico W (4× NEMA23 RVBY)</figcaption>
+                    </figure>
                 </div>
 
                 <div class="pd-section">
@@ -1189,6 +1286,11 @@
                             par l&#8217;op&#233;rateur.
                         </li>
                     </ol>
+                    <figure class="img-figure" style="margin-top:16px;">
+                        <img src="assets/images/smart-viewer/smart-viewer-rs485.svg"
+                             alt="Protocole RS485 — trame 7 octets avec checksum et acquittement" loading="lazy">
+                        <figcaption>Protocole RS485 — Trame binaire 7 octets · Checksum XOR · Acquittement ACK/NAK · Câble blindé 8m</figcaption>
+                    </figure>
                 </div>
 
                 <div class="pd-section">
@@ -1210,6 +1312,11 @@
                             <p>Le multithreading Python, combin&#233; &#224; l&#8217;architecture distribu&#233;e, suffit pour atteindre les contraintes temps r&#233;el de l&#8217;application sans recourir au C++.</p>
                         </div>
                     </div>
+                    <figure class="img-figure" style="margin-top:20px;">
+                        <img src="assets/images/smart-viewer/smart-viewer-pcb.svg"
+                             alt="4 PCB conçus sous Altium Designer pour Smart Viewer" loading="lazy">
+                        <figcaption>4 PCB sur mesure conçus sous Altium Designer : PCB-Camera, DC-Motor-Controller, 2in1-Flex-Board, GPIO-Motor-Control</figcaption>
+                    </figure>
                 </div>
 
                 <div class="pd-links">
@@ -1274,6 +1381,11 @@
                         <span class="tech-badge">D&#233;tection de contours</span>
                         <span class="tech-badge">Analyse optique</span>
                     </div>
+                    <figure class="img-figure" style="margin-top:16px;">
+                        <img src="assets/images/optiqt/optiqt-architecture.svg"
+                             alt="Architecture en 4 couches d'OptiQt — Core, Vision, CNC, UI" loading="lazy">
+                        <figcaption>Architecture modulaire en 4 couches indépendantes : Core → Vision → CNC → UI · Chaque couche évolutive indépendamment</figcaption>
+                    </figure>
                 </div>
 
                 <div class="pd-section">
@@ -1295,6 +1407,11 @@
                             tests unitaires Pytest.
                         </li>
                     </ol>
+                    <figure class="img-figure" style="margin-top:16px;">
+                        <img src="assets/images/optiqt/optiqt-contour.svg"
+                             alt="Pipeline OptiQt : image brute → contours détectés → G-code généré" loading="lazy">
+                        <figcaption>Pipeline complet en 3 étapes : Image brute → Extraction contours OpenCV → Génération trajectoire G-code</figcaption>
+                    </figure>
                 </div>
 
                 <div class="pd-section">
@@ -1316,6 +1433,11 @@
                             <p>Le framework a servi de base pour d&#8217;autres solutions industrielles (pr&#233;vention incendie, interfaces HMI), validant sa r&#233;utilisabilit&#233;.</p>
                         </div>
                     </div>
+                    <figure class="img-figure" style="margin-top:20px;">
+                        <img src="assets/images/optiqt/optiqt-hardware.svg"
+                             alt="Schéma de communication OptiQt — Application → PySerial → Arduino UNO → CNC" loading="lazy">
+                        <figcaption>Communication série : Application OptiQt → PySerial → Arduino UNO → Machine CNC · 3 profils matériaux · Mock injectable Pytest</figcaption>
+                    </figure>
                 </div>
 
                 <div class="pd-links">
@@ -1396,6 +1518,13 @@
     </p>
 </footer>
 
+<!-- ====== LIGHTBOX ====== -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+    <button id="lightbox-close" aria-label="Fermer">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+    <div id="lightbox-caption"></div>
+</div>
+
 <script>
     // Close mobile nav on link click
     document.querySelectorAll('.nav-links a').forEach(function(link) {
@@ -1427,6 +1556,56 @@
 
     window.addEventListener('scroll', updateActiveNav);
     updateActiveNav();
+
+    // Lightbox
+    (function() {
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lightbox-img');
+        var lbCaption = document.getElementById('lightbox-caption');
+        var lbClose = document.getElementById('lightbox-close');
+
+        function openLightbox(src, alt, caption) {
+            lbImg.src = src;
+            lbImg.alt = alt || '';
+            lbCaption.textContent = caption || alt || '';
+            lbCaption.style.display = caption || alt ? '' : 'none';
+            lb.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lb.classList.remove('active');
+            document.body.style.overflow = '';
+            lbImg.src = '';
+        }
+
+        // Make all content images zoomable (includes card thumbnails and detail images, excludes avatar)
+        function initZoomable() {
+            var imgs = document.querySelectorAll(
+                '.pd-main-img, .img-figure img, .card-img'
+            );
+            imgs.forEach(function(img) {
+                img.classList.add('zoomable');
+                img.addEventListener('click', function() {
+                    var fig = img.closest('figure');
+                    var caption = fig ? (fig.querySelector('figcaption') || {}).textContent : '';
+                    openLightbox(img.src, img.alt, caption || img.alt);
+                });
+            });
+        }
+
+        lbClose.addEventListener('click', closeLightbox);
+
+        lb.addEventListener('click', function(e) {
+            if (e.target === lb) closeLightbox();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        initZoomable();
+    })();
 </script>
 
 </body>

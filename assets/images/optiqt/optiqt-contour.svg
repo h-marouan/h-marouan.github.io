@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" font-family="'Segoe UI',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B111A;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#121A26;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="440" fill="url(#bgGrad)" rx="12"/>
+  <rect width="900" height="440" fill="none" stroke="#1e2d42" stroke-width="1.5" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="#E6EEF8" letter-spacing="0.04em">OPTIQT — Pipeline Traitement Image → Contours → G-code</text>
+  <line x1="150" y1="46" x2="750" y2="46" stroke="#1e2d42" stroke-width="1"/>
+
+  <!-- Step 1: Image Brute -->
+  <rect x="30" y="62" width="250" height="320" rx="10" fill="#1a2535" stroke="#35C2FF" stroke-width="1.5"/>
+  <rect x="30" y="62" width="250" height="30" rx="10" fill="#35C2FF" fill-opacity="0.2"/>
+  <text x="155" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="#35C2FF">ÉTAPE 1 — IMAGE BRUTE</text>
+
+  <!-- Simulated glass image (SVG art) -->
+  <rect x="50" y="102" width="210" height="160" rx="6" fill="#0a1a0a" stroke="#2d4a2d" stroke-width="1"/>
+  <!-- Glass shape (oval/circle) -->
+  <ellipse cx="155" cy="182" rx="75" ry="60" fill="none" stroke="#4a8a4a" stroke-width="2"/>
+  <!-- Drilling holes -->
+  <circle cx="120" cy="158" r="8" fill="none" stroke="#6aaa6a" stroke-width="1.5"/>
+  <circle cx="190" cy="158" r="8" fill="none" stroke="#6aaa6a" stroke-width="1.5"/>
+  <circle cx="155" cy="210" r="6" fill="none" stroke="#6aaa6a" stroke-width="1.5"/>
+  <!-- Grid/background noise -->
+  <line x1="60" y1="120" x2="240" y2="120" stroke="#1a2a1a" stroke-width="0.5"/>
+  <line x1="60" y1="140" x2="240" y2="140" stroke="#1a2a1a" stroke-width="0.5"/>
+  <line x1="60" y1="160" x2="240" y2="160" stroke="#1a2a1a" stroke-width="0.5"/>
+  <line x1="60" y1="180" x2="240" y2="180" stroke="#1a2a1a" stroke-width="0.5"/>
+  <line x1="60" y1="200" x2="240" y2="200" stroke="#1a2a1a" stroke-width="0.5"/>
+  <line x1="60" y1="220" x2="240" y2="220" stroke="#1a2a1a" stroke-width="0.5"/>
+  <line x1="80" y1="105" x2="80" y2="255" stroke="#1a2a1a" stroke-width="0.5"/>
+  <line x1="120" y1="105" x2="120" y2="255" stroke="#1a2a1a" stroke-width="0.5"/>
+  <line x1="160" y1="105" x2="160" y2="255" stroke="#1a2a1a" stroke-width="0.5"/>
+  <line x1="200" y1="105" x2="200" y2="255" stroke="#1a2a1a" stroke-width="0.5"/>
+  <line x1="230" y1="105" x2="230" y2="255" stroke="#1a2a1a" stroke-width="0.5"/>
+  <!-- Caption in image -->
+  <text x="155" y="272" text-anchor="middle" font-size="9" fill="#4a8a4a">📷 Verre optique capturé</text>
+
+  <rect x="50" y="276" width="210" height="90" rx="6" fill="#121A26" stroke="#1e2d42" stroke-width="1"/>
+  <text x="155" y="296" text-anchor="middle" font-size="9.5" font-weight="700" fill="#35C2FF">Acquisition</text>
+  <text x="155" y="311" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Picamera2 · IMX519</text>
+  <text x="155" y="325" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Résolution 1920×1080</text>
+  <text x="155" y="339" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Format RGB888</text>
+  <text x="155" y="353" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Éclairage calibré</text>
+
+  <!-- Arrow 1 → 2 -->
+  <line x1="280" y1="222" x2="325" y2="222" stroke="#35C2FF" stroke-width="2"/>
+  <polygon points="320,217 325,222 320,227" fill="#35C2FF"/>
+  <rect x="280" y="205" width="48" height="32" rx="4" fill="#0B111A"/>
+  <text x="304" y="218" text-anchor="middle" font-size="8" fill="#8A9AB5">OpenCV</text>
+  <text x="304" y="229" text-anchor="middle" font-size="8" fill="#8A9AB5">Canny</text>
+
+  <!-- Step 2: Contour Detection -->
+  <rect x="325" y="62" width="250" height="320" rx="10" fill="#1a2535" stroke="#00D6B5" stroke-width="1.5"/>
+  <rect x="325" y="62" width="250" height="30" rx="10" fill="#00D6B5" fill-opacity="0.2"/>
+  <text x="450" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="#00D6B5">ÉTAPE 2 — CONTOURS</text>
+
+  <!-- Contour visualization -->
+  <rect x="345" y="102" width="210" height="160" rx="6" fill="#0a0a1a" stroke="#0d3060" stroke-width="1"/>
+  <!-- Detected contour (bright outline on dark) -->
+  <ellipse cx="450" cy="182" rx="75" ry="60" fill="none" stroke="#00D6B5" stroke-width="2.5"/>
+  <!-- Detected holes with markers -->
+  <circle cx="415" cy="158" r="8" fill="none" stroke="#35C2FF" stroke-width="2"/>
+  <circle cx="415" cy="158" r="2" fill="#35C2FF"/>
+  <circle cx="485" cy="158" r="8" fill="none" stroke="#35C2FF" stroke-width="2"/>
+  <circle cx="485" cy="158" r="2" fill="#35C2FF"/>
+  <circle cx="450" cy="210" r="6" fill="none" stroke="#35C2FF" stroke-width="2"/>
+  <circle cx="450" cy="210" r="2" fill="#35C2FF"/>
+  <!-- Bounding box -->
+  <rect x="370" y="118" rx="2" width="160" height="130" fill="none" stroke="#FFB347" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- Contour points dots -->
+  <circle cx="375" cy="182" r="2" fill="#00D6B5"/>
+  <circle cx="390" cy="145" r="2" fill="#00D6B5"/>
+  <circle cx="410" cy="126" r="2" fill="#00D6B5"/>
+  <circle cx="450" cy="122" r="2" fill="#00D6B5"/>
+  <circle cx="490" cy="126" r="2" fill="#00D6B5"/>
+  <circle cx="510" cy="145" r="2" fill="#00D6B5"/>
+  <circle cx="525" cy="182" r="2" fill="#00D6B5"/>
+  <circle cx="510" cy="215" r="2" fill="#00D6B5"/>
+  <circle cx="450" cy="242" r="2" fill="#00D6B5"/>
+  <circle cx="390" cy="215" r="2" fill="#00D6B5"/>
+  <text x="450" y="272" text-anchor="middle" font-size="9" fill="#00D6B5">✓ Contours + 3 perçages détectés</text>
+
+  <rect x="345" y="276" width="210" height="90" rx="6" fill="#121A26" stroke="#1e2d42" stroke-width="1"/>
+  <text x="450" y="296" text-anchor="middle" font-size="9.5" font-weight="700" fill="#00D6B5">Traitement OpenCV</text>
+  <text x="450" y="311" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Détection Canny adaptative</text>
+  <text x="450" y="325" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Segmentation contours</text>
+  <text x="450" y="339" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Validation taille foret</text>
+  <text x="450" y="353" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Dédoublonnage perçages</text>
+
+  <!-- Arrow 2 → 3 -->
+  <line x1="575" y1="222" x2="620" y2="222" stroke="#00D6B5" stroke-width="2"/>
+  <polygon points="615,217 620,222 615,227" fill="#00D6B5"/>
+  <rect x="575" y="205" width="48" height="32" rx="4" fill="#0B111A"/>
+  <text x="599" y="218" text-anchor="middle" font-size="8" fill="#8A9AB5">G-code</text>
+  <text x="599" y="229" text-anchor="middle" font-size="8" fill="#8A9AB5">Gen.</text>
+
+  <!-- Step 3: G-code -->
+  <rect x="620" y="62" width="250" height="320" rx="10" fill="#1a2535" stroke="#FFB347" stroke-width="1.5"/>
+  <rect x="620" y="62" width="250" height="30" rx="10" fill="#FFB347" fill-opacity="0.2"/>
+  <text x="745" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="#FFB347">ÉTAPE 3 — G-CODE</text>
+
+  <!-- G-code visualization (trajectory plot) -->
+  <rect x="640" y="102" width="210" height="160" rx="6" fill="#050510" stroke="#1e2d42" stroke-width="1"/>
+  <!-- Axis lines -->
+  <line x1="660" y1="252" x2="835" y2="252" stroke="#1e2d42" stroke-width="1"/>
+  <line x1="660" y1="112" x2="660" y2="252" stroke="#1e2d42" stroke-width="1"/>
+  <!-- Trajectory path -->
+  <ellipse cx="745" cy="182" rx="65" ry="52" fill="none" stroke="#FFB347" stroke-width="2"/>
+  <!-- Drilling paths -->
+  <circle cx="710" cy="158" r="8" fill="none" stroke="#FF6B6B" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <circle cx="710" cy="158" r="2" fill="#FF6B6B"/>
+  <circle cx="780" cy="158" r="8" fill="none" stroke="#FF6B6B" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <circle cx="780" cy="158" r="2" fill="#FF6B6B"/>
+  <circle cx="745" cy="210" r="6" fill="none" stroke="#FF6B6B" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <circle cx="745" cy="210" r="2" fill="#FF6B6B"/>
+  <!-- Start point -->
+  <circle cx="680" cy="182" r="4" fill="#35C2FF"/>
+  <text x="680" y="175" text-anchor="middle" font-size="7" fill="#35C2FF">G28</text>
+  <!-- Offset contour (outer) -->
+  <ellipse cx="745" cy="182" rx="68" ry="55" fill="none" stroke="#FFB347" stroke-width="0.8" stroke-dasharray="5,3" opacity="0.5"/>
+  <!-- Direction arrow on trajectory -->
+  <polygon points="745,128 749,133 741,133" fill="#FFB347"/>
+  <text x="745" y="270" text-anchor="middle" font-size="9" fill="#FFB347">Trajectoire G1 + compensation outil</text>
+
+  <rect x="640" y="276" width="210" height="90" rx="6" fill="#121A26" stroke="#1e2d42" stroke-width="1"/>
+  <text x="745" y="296" text-anchor="middle" font-size="9.5" font-weight="700" fill="#FFB347">Génération G-code</text>
+  <text x="745" y="311" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Trajectoires G1 optimisées</text>
+  <text x="745" y="325" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Polygon offset (outil)</text>
+  <text x="745" y="339" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• 3 profils : Minéral/PC/CR39</text>
+  <text x="745" y="353" text-anchor="middle" font-size="8.5" fill="#8A9AB5">• Envoi série → Arduino UNO</text>
+
+  <!-- Bottom bar -->
+  <rect x="30" y="396" width="840" height="32" rx="6" fill="#121A26" stroke="#1e2d42" stroke-width="1"/>
+  <text x="450" y="412" text-anchor="middle" font-size="9" fill="#8A9AB5">Pipeline complet automatisé : Acquisition caméra → OpenCV → Extraction contours → Génération G-code → Communication série → Machine CNC</text>
+  <text x="450" y="424" text-anchor="middle" font-size="8.5" fill="#35C2FF">Temps de traitement : &lt; 500ms · Mode simulation disponible · Pytest coverage · OptiQt v1.0</text>
+</svg>

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="'Segoe UI',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B111A;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#121A26;stop-opacity:1"/>
+    </linearGradient>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#35C2FF"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#00D6B5"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bgGrad)" rx="12"/>
+  <rect width="900" height="500" fill="none" stroke="#1e2d42" stroke-width="1.5" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="15" font-weight="700" fill="#E6EEF8" letter-spacing="0.04em">OPTIQT v1.0 — Architecture en 4 Couches</text>
+  <line x1="170" y1="46" x2="730" y2="46" stroke="#1e2d42" stroke-width="1"/>
+
+  <!-- Layer labels on left -->
+  <text x="18" y="136" text-anchor="middle" font-size="9" font-weight="700" fill="#8A9AB5" transform="rotate(-90 18 136)">COUCHE 1</text>
+  <text x="18" y="246" text-anchor="middle" font-size="9" font-weight="700" fill="#8A9AB5" transform="rotate(-90 18 246)">COUCHE 2</text>
+  <text x="18" y="356" text-anchor="middle" font-size="9" font-weight="700" fill="#8A9AB5" transform="rotate(-90 18 356)">COUCHE 3</text>
+  <text x="18" y="446" text-anchor="middle" font-size="9" font-weight="700" fill="#8A9AB5" transform="rotate(-90 18 446)">COUCHE 4</text>
+
+  <!-- ===== LAYER 1: CORE ===== -->
+  <rect x="35" y="62" width="830" height="98" rx="8" fill="#1a2535" stroke="#35C2FF" stroke-width="1.5"/>
+  <rect x="35" y="62" width="90" height="98" rx="8" fill="#35C2FF" fill-opacity="0.15"/>
+  <text x="80" y="107" text-anchor="middle" font-size="12" font-weight="700" fill="#35C2FF">CORE</text>
+  <text x="80" y="124" text-anchor="middle" font-size="9" fill="#8A9AB5">Moteur</text>
+  <text x="80" y="136" text-anchor="middle" font-size="9" fill="#8A9AB5">applicatif</text>
+
+  <!-- Core modules -->
+  <rect x="140" y="74" width="130" height="74" rx="6" fill="#121A26" stroke="#35C2FF" stroke-width="1"/>
+  <text x="205" y="96" text-anchor="middle" font-size="10" font-weight="700" fill="#35C2FF">contour_extractor</text>
+  <text x="205" y="111" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Détection Canny</text>
+  <text x="205" y="124" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Segmentation adaptative</text>
+  <text x="205" y="137" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Filtrage polygone</text>
+
+  <rect x="285" y="74" width="130" height="74" rx="6" fill="#121A26" stroke="#35C2FF" stroke-width="1"/>
+  <text x="350" y="96" text-anchor="middle" font-size="10" font-weight="700" fill="#35C2FF">gcode_generator</text>
+  <text x="350" y="111" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Trajectoires optimisées</text>
+  <text x="350" y="124" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Polygon offset (outil)</text>
+  <text x="350" y="137" text-anchor="middle" font-size="8.5" fill="#8A9AB5">3 profils matériaux</text>
+
+  <rect x="430" y="74" width="130" height="74" rx="6" fill="#121A26" stroke="#35C2FF" stroke-width="1"/>
+  <text x="495" y="96" text-anchor="middle" font-size="10" font-weight="700" fill="#35C2FF">math_tools</text>
+  <text x="495" y="111" text-anchor="middle" font-size="8.5" fill="#8A9AB5">NumPy · SciPy</text>
+  <text x="495" y="124" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Lissage de courbe</text>
+  <text x="495" y="137" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Simplification polygone</text>
+
+  <rect x="575" y="74" width="130" height="74" rx="6" fill="#121A26" stroke="#35C2FF" stroke-width="1"/>
+  <text x="640" y="96" text-anchor="middle" font-size="10" font-weight="700" fill="#35C2FF">simulation</text>
+  <text x="640" y="111" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Mode sans matériel</text>
+  <text x="640" y="124" text-anchor="middle" font-size="8.5" fill="#8A9AB5">SIMULATION_MODE</text>
+  <text x="640" y="137" text-anchor="middle" font-size="8.5" fill="#8A9AB5">file_manager · config</text>
+
+  <rect x="720" y="74" width="120" height="74" rx="6" fill="#121A26" stroke="#35C2FF" stroke-width="1"/>
+  <text x="780" y="96" text-anchor="middle" font-size="10" font-weight="700" fill="#35C2FF">Pytest Tests</text>
+  <text x="780" y="111" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Tests unitaires</text>
+  <text x="780" y="124" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Mock injectable</text>
+  <text x="780" y="137" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Couverture complète</text>
+
+  <!-- Down arrow Core → Vision -->
+  <line x1="450" y1="160" x2="450" y2="172" stroke="#35C2FF" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="460" y="168" font-size="8.5" fill="#35C2FF">flux données</text>
+
+  <!-- ===== LAYER 2: VISION ===== -->
+  <rect x="35" y="172" width="830" height="88" rx="8" fill="#1a2535" stroke="#00D6B5" stroke-width="1.5"/>
+  <rect x="35" y="172" width="90" height="88" rx="8" fill="#00D6B5" fill-opacity="0.15"/>
+  <text x="80" y="212" text-anchor="middle" font-size="12" font-weight="700" fill="#00D6B5">VISION</text>
+  <text x="80" y="229" text-anchor="middle" font-size="9" fill="#8A9AB5">Traitement</text>
+  <text x="80" y="241" text-anchor="middle" font-size="9" fill="#8A9AB5">d'image</text>
+
+  <rect x="140" y="184" width="260" height="64" rx="6" fill="#121A26" stroke="#00D6B5" stroke-width="1"/>
+  <text x="270" y="204" text-anchor="middle" font-size="10" font-weight="700" fill="#00D6B5">camera_manager</text>
+  <text x="270" y="219" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Acquisition caméra · Picamera2</text>
+  <text x="270" y="233" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Gestion frames · calibration</text>
+
+  <rect x="415" y="184" width="430" height="64" rx="6" fill="#121A26" stroke="#00D6B5" stroke-width="1"/>
+  <text x="630" y="204" text-anchor="middle" font-size="10" font-weight="700" fill="#00D6B5">image_processing</text>
+  <text x="630" y="219" text-anchor="middle" font-size="8.5" fill="#8A9AB5">OpenCV · Canny · Segmentation · Détection perçages · Validation foret</text>
+  <text x="630" y="233" text-anchor="middle" font-size="8.5" fill="#8A9AB5">RGB888 · Filtrage adaptatif · Dédoublonnage trous · Post-traitement</text>
+
+  <!-- Down arrow Vision → CNC -->
+  <line x1="450" y1="260" x2="450" y2="272" stroke="#00D6B5" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+  <!-- ===== LAYER 3: CNC ===== -->
+  <rect x="35" y="272" width="830" height="88" rx="8" fill="#1a2535" stroke="#FFB347" stroke-width="1.5"/>
+  <rect x="35" y="272" width="90" height="88" rx="8" fill="#FFB347" fill-opacity="0.15"/>
+  <text x="80" y="312" text-anchor="middle" font-size="12" font-weight="700" fill="#FFB347">CNC</text>
+  <text x="80" y="329" text-anchor="middle" font-size="9" fill="#8A9AB5">Machine</text>
+  <text x="80" y="341" text-anchor="middle" font-size="9" fill="#8A9AB5">pilotage</text>
+
+  <rect x="140" y="284" width="200" height="64" rx="6" fill="#121A26" stroke="#FFB347" stroke-width="1"/>
+  <text x="240" y="304" text-anchor="middle" font-size="10" font-weight="700" fill="#FFB347">motion_controller</text>
+  <text x="240" y="319" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Homing G28 · Déplacements G1</text>
+  <text x="240" y="333" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Compensation outil · Vitesse broche</text>
+
+  <rect x="355" y="284" width="200" height="64" rx="6" fill="#121A26" stroke="#FFB347" stroke-width="1"/>
+  <text x="455" y="304" text-anchor="middle" font-size="10" font-weight="700" fill="#FFB347">serial_interface</text>
+  <text x="455" y="319" text-anchor="middle" font-size="8.5" fill="#8A9AB5">PySerial · COM3 · 9600 baud</text>
+  <text x="455" y="333" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Mock injectable · tests Pytest</text>
+
+  <rect x="570" y="284" width="280" height="64" rx="6" fill="#121A26" stroke="#FFB347" stroke-width="1"/>
+  <text x="710" y="304" text-anchor="middle" font-size="10" font-weight="700" fill="#FFB347">hardware_rpi / hardware_uno</text>
+  <text x="710" y="319" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Arduino UNO · Interface série</text>
+  <text x="710" y="333" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Raspberry Pi GPIO · 3 profils matériaux</text>
+
+  <!-- Down arrow CNC → UI -->
+  <line x1="450" y1="360" x2="450" y2="372" stroke="#FFB347" stroke-width="2"/>
+  <polygon points="445,367 450,372 455,367" fill="#FFB347"/>
+
+  <!-- ===== LAYER 4: UI ===== -->
+  <rect x="35" y="372" width="830" height="88" rx="8" fill="#1a2535" stroke="#A78BFA" stroke-width="1.5"/>
+  <rect x="35" y="372" width="90" height="88" rx="8" fill="#A78BFA" fill-opacity="0.15"/>
+  <text x="80" y="412" text-anchor="middle" font-size="12" font-weight="700" fill="#A78BFA">UI</text>
+  <text x="80" y="429" text-anchor="middle" font-size="9" fill="#8A9AB5">Interface</text>
+  <text x="80" y="441" text-anchor="middle" font-size="9" fill="#8A9AB5">opérateur</text>
+
+  <rect x="140" y="384" width="260" height="64" rx="6" fill="#121A26" stroke="#A78BFA" stroke-width="1"/>
+  <text x="270" y="404" text-anchor="middle" font-size="10" font-weight="700" fill="#A78BFA">gui_main (PyQt6)</text>
+  <text x="270" y="419" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Interface tactile · Mode kiosque RPi</text>
+  <text x="270" y="433" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Image verre + contours + G-code</text>
+
+  <rect x="415" y="384" width="200" height="64" rx="6" fill="#121A26" stroke="#A78BFA" stroke-width="1"/>
+  <text x="515" y="404" text-anchor="middle" font-size="10" font-weight="700" fill="#A78BFA">gui_components</text>
+  <text x="515" y="419" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Composants réutilisables</text>
+  <text x="515" y="433" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Styles QSS personnalisés</text>
+
+  <rect x="630" y="384" width="220" height="64" rx="6" fill="#121A26" stroke="#A78BFA" stroke-width="1"/>
+  <text x="740" y="404" text-anchor="middle" font-size="10" font-weight="700" fill="#A78BFA">virtual_keyboard</text>
+  <text x="740" y="419" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Clavier virtuel intégré</text>
+  <text x="740" y="433" text-anchor="middle" font-size="8.5" fill="#8A9AB5">Conçu pour écran tactile</text>
+
+  <!-- Bottom note -->
+  <text x="450" y="478" text-anchor="middle" font-size="9" fill="#8A9AB5" font-style="italic">Architecture indépendante des couches · chaque couche peut évoluer sans impacter les autres · Python · OpenCV · PyQt6 · PySerial · Pytest</text>
+</svg>
