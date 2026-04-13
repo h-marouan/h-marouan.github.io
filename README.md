@@ -32,8 +32,7 @@ Système d’inspection industrielle en temps réel : **capture caméra**, **int
 - Optimisations thermiques (LED sync framerate)
 - Roadmap IA (détection autonome)
 
-Doc (dans ce repo) : `docs/smart-viewer/README.md`
-
+pour plus de details: <a href="[docs/smart-viewer/README.md](https://github.com/h-marouan/h-marouan.github.io/blob/c3228805aebc2a8aa2c7e6675f3b43de85dafe1a/docs/smart-viewer/README.md)" target="_blank" rel="noopener">Smart-Viewer-README-</a>
 ---
 
 ### 🧩 OptiQt — Vision + CNC + génération de G-code
@@ -42,8 +41,6 @@ Framework Python modulaire dédié à l’optimisation et au pilotage de systèm
 - Modules CNC (génération G-code, communication série, contrôle mouvement)
 - Interface Qt + tests unitaires
 
-Repo : https://github.com/h-marouan/OptiQt  
-Doc (dans ce repo) : `docs/optiqt/README.md`
 
 ---
 
