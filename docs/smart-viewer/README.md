@@ -23,7 +23,7 @@ Le saut majeur vers v4.0 introduit la communication RS485 pour moteurs distants.
 La version 4.2 affine la v4.0 avec optimisations hardware :
 - Moteur caméra utilise PWM GPIO 12 (hardware natif, jamais bloqué par framerate)
 - LED WS2812B migrée en mode SPI (GPIO 10 MOSI) pour stabilité
-- Synchronisation LED-framerate : réduction de 960mA → 4mA (-99.6% thermique)
+- Synchronisation LED-framerate : réduction de 960mA → 4mA (-85% thermique)
 - Correction couleur intégrée directement dans camera_app.py
 
 ## Architecture matérielle
