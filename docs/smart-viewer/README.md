@@ -1,3 +1,15 @@
+### 👨‍💻 Auteur
+
+Marouan HAMZA
+
+Ingénieur en génie électrique & informatique industrielle
+
+📧 Contact : [marouan.hamza@outlook.com]
+
+🔗 LinkedIn : [https://www.linkedin.com/in/marouan-hamza/]
+
+
+
 # SMART_VIEWER - Système d'Inspection Couleur Autonome
 
 ## Vue d'ensemble
