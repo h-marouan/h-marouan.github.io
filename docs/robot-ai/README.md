@@ -1,3 +1,14 @@
+### 👨‍💻 Auteur
+
+Marouan HAMZA
+
+Ingénieur en génie électrique & informatique industrielle
+
+📧 Contact : [marouan.hamza@outlook.com]
+
+🔗 LinkedIn : [https://www.linkedin.com/in/marouan-hamza/]
+
+
 # Robot AI – Virtual Industrial Company
 
 ## 📌 Présentation générale
