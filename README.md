@@ -3,7 +3,7 @@
 Bienvenue sur le dépôt de mon **portfolio GitHub Pages**.  
 J’y présente mon profil (expérience, compétences) ainsi que mes **projets phares** mêlant **hardware**, **logiciel embarqué**, **vision par ordinateur** et **IA appliquée à l’industrie**.
 
-👉 **Visiter le portfolio :** https://h-marouan.github.io/
+👉 **Visiter le portfolio :** <a href="https://h-marouan.github.io/" target="_blank" rel="noopener">h-marouan.github.io</a>
 
 ---
 
@@ -12,7 +12,7 @@ J’y présente mon profil (expérience, compétences) ainsi que mes **projets p
 - Mettre en avant des réalisations concrètes (industrie 4.0, vision, robotique, LLM)
 - Fournir un accès direct à mon CV et à mes dépôts GitHub
 
-📄 **CV (PDF)** : `docs/marouan hamza.pdf`
+📄 **CV (PDF)** : <a href="docs/marouan%20hamza.pdf" target="_blank" rel="noopener">Ouvrir le CV</a>
 
 ---
 
@@ -23,8 +23,6 @@ Un assistant industriel conçu comme une **entreprise virtuelle pilotée par IA*
 - Multi-providers LLM (adaptation modèle ↔ tâche)
 - Résilience (bascule locale en cas de coupure)
 - Sécurité renforcée (validations multi-niveaux, biométrie, etc.)
-
-Repo : https://github.com/h-marouan/ROBOT-AI
 
 ---
 
