@@ -641,6 +641,9 @@
             border: 1px solid var(--border);
             box-shadow: 0 24px 80px rgba(0,0,0,0.7);
             animation: lbIn 0.2s ease;
+            transition: transform 0.15s ease;
+            transform-origin: center center;
+            cursor: zoom-in;
         }
 
         @keyframes lbIn {
@@ -1569,11 +1572,27 @@
         var lbCaption = document.getElementById('lightbox-caption');
         var lbClose = document.getElementById('lightbox-close');
 
+        var zoomLevel = 1;
+        var ZOOM_MIN = 0.5;
+        var ZOOM_MAX = 5;
+        var ZOOM_STEP = 0.15;
+
+        function applyZoom() {
+            lbImg.style.transform = 'scale(' + zoomLevel + ')';
+            lbImg.style.cursor = zoomLevel > 1 ? 'zoom-out' : 'zoom-in';
+        }
+
+        function resetZoom() {
+            zoomLevel = 1;
+            applyZoom();
+        }
+
         function openLightbox(src, alt, caption) {
             lbImg.src = src;
             lbImg.alt = alt || '';
             lbCaption.textContent = caption || alt || '';
             lbCaption.style.display = caption || alt ? '' : 'none';
+            resetZoom();
             lb.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -1582,7 +1601,16 @@
             lb.classList.remove('active');
             document.body.style.overflow = '';
             lbImg.src = '';
+            resetZoom();
         }
+
+        // Mouse wheel zoom inside lightbox
+        lb.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            var delta = e.deltaY < 0 ? ZOOM_STEP : -ZOOM_STEP;
+            zoomLevel = Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, zoomLevel + delta));
+            applyZoom();
+        }, { passive: false });
 
         // Make all content images zoomable (includes card thumbnails and detail images, excludes avatar)
         function initZoomable() {
