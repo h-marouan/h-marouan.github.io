@@ -24,6 +24,8 @@ Un assistant industriel conçu comme une **entreprise virtuelle pilotée par IA*
 - Résilience (bascule locale en cas de coupure)
 - Sécurité renforcée (validations multi-niveaux, biométrie, etc.)
 
+  Pour plus de details : <a href="docs/robot-ai/README.md" target="_blank" rel="noopener">Robot-AI-README</a>
+
 ---
 
 ### 👁️ SMART_VIEWER — Inspection couleur autonome (Raspberry Pi 5 + Pico W)
@@ -32,7 +34,7 @@ Système d’inspection industrielle en temps réel : **capture caméra**, **int
 - Optimisations thermiques (LED sync framerate)
 - Roadmap IA (détection autonome)
 
-pour plus de details : <a href="docs/smart-viewer/README.md" target="_blank" rel="noopener">Smart-Viewer-README-</a>
+Pour plus de details : <a href="docs/smart-viewer/README.md" target="_blank" rel="noopener">Smart-Viewer-README</a>
 
 ---
 
@@ -42,6 +44,7 @@ Framework Python modulaire dédié à l’optimisation et au pilotage de systèm
 - Modules CNC (génération G-code, communication série, contrôle mouvement)
 - Interface Qt + tests unitaires
 
+Pour plus de details : <a href="docs/optiqt/README.md" target="_blank" rel="noopener">OptiQt-README</a>
 
 ---
 
