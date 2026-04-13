@@ -32,7 +32,8 @@ Système d’inspection industrielle en temps réel : **capture caméra**, **int
 - Optimisations thermiques (LED sync framerate)
 - Roadmap IA (détection autonome)
 
-pour plus de details: <a href="[docs/smart-viewer/README.md](https://github.com/h-marouan/h-marouan.github.io/blob/c3228805aebc2a8aa2c7e6675f3b43de85dafe1a/docs/smart-viewer/README.md)" target="_blank" rel="noopener">Smart-Viewer-README-</a>
+pour plus de details : <a href="docs/smart-viewer/README.md" target="_blank" rel="noopener">Smart-Viewer-README-</a>
+
 ---
 
 ### 🧩 OptiQt — Vision + CNC + génération de G-code
