@@ -440,13 +440,13 @@ Ajouter encodeurs magnétiques sur les 4 moteurs pour :
 
 ## Crédits et notes
 
-Le projet a bénéficié de contributions à travers ses versions. L'architecture v4.1 stabilise et optimise les leçons apprises depuis la v1.
+Le projet a bénéficié de contributions à travers ses versions. L'architecture v4.2 stabilise et optimise les leçons apprises depuis la v1.
 
-Prochaines étapes : déploiement terrain système v4.1, collection dataset pour IA v5.0.
+Prochaines étapes : déploiement terrain système v4.2, collection dataset pour IA v5.0.
 
 ---
 
-**Version**: v4.1  
+**Version**: v4.2  
 **Dernière mise à jour**: 27 Mars 2026  
 **État**: Prêt production (moteurs locaux), Prêt tests (RS485 distant)  
 **Roadmap**: v5.0 IA autonome Q2 2026
@@ -454,7 +454,7 @@ Prochaines étapes : déploiement terrain système v4.1, collection dataset pour
 ## 📦 Fichiers Créés (10 fichiers)
 
 #### Code Source
-1. **`config.py`** - Configuration v4.0 avec paramètres RS485
+1. **`config.py`** - Configuration v4.2 avec paramètres RS485
 2. **`rs485_controller.py`** - Library Pi5 pour communication RS485
 3. **`pico_motor_controller.py`** - Firmware Pico W (MicroPython)
 
@@ -478,7 +478,7 @@ Prochaines étapes : déploiement terrain système v4.1, collection dataset pour
 Pi5 → GPIO directs → TB6600 → Moteurs (locaux)
 ```
 
-**Après (v4.0)**:
+**Après (v4.2)**:
 ```
 Pi5 ← RS485 → Pico W ← GPIO ← TB6600 ← Moteurs (8 mètres loin)
 ```
@@ -644,7 +644,7 @@ RS485_USE_SIMULATOR = True
 
 ## 📊 Fichiers à Copier depuis v3.2.1
 
-Pour compléter v4.0, copier ces fichiers inchangés depuis v3.2.1:
+Pour compléter v4.2, copier ces fichiers inchangés depuis v3.2.1:
 
 ```
 camera_manager.py
@@ -663,11 +663,11 @@ test_*.py (tests et outils existants)
 ## 🎓 Arborescence Finale (Après Completion)
 
 ```
-v4.0_rs485_architecture/
+v4.2_rs485_architecture/
 ├── Code PI5:
 │   ├── camera_app.py          (adapté depuis v3)
 │   ├── camera_manager.py      (copie v3)
-│   ├── config.py              (✓ NEW v4.0)
+│   ├── config.py              (✓ NEW v4.2)
 │   ├── framerate_calculator.py (copie v3)
 │   ├── gpio_handler.py        (copie v3)
 │   ├── main.py                (copie v3)
@@ -758,9 +758,8 @@ Estimé: **2-3 semaines** (acquisition matériel: 1 semaine, intégration + test
 
 ---
 
-**Version**: v4.0.0-rc1  
+**Version**: v4.2.0-rc1  
 **Date Création**: 2026-03-23  
 **Status**: Ready for Hardware Testing  
 **Next Review**: Après déploiement réel
 
-Bonne chance! 🚀
